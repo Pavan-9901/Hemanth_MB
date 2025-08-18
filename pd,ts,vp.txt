@@ -1,0 +1,51 @@
+import numpy as np
+import timeit
+print(np.sum(np.arange(0,4)))
+print("time taken by vectorization sum :",end=" ")
+total=0
+for item in range (6):
+  total=total + item
+a=total
+print("\n"+str(a))
+print("time taken by iterized sum",end=" ")
+%timeit a
+
+
+
+import pandas as pd
+import numpy as np
+marks={"chemistry":[67,90,66,32],
+       "physics":[45,92,72,40],
+       "mathematics":[50,87,81,12],
+       "english":[19,90,72,68]}
+marks=pd.DataFrame(marks,index=["hemanth","yashvanth","anith","deekshith"])
+print(marks)
+
+#particular column
+print("sum of chemistry marks:")
+print(marks.chemistry.sum())
+
+#both column
+print("sum of both subject marks:")
+print(marks.sum())
+
+print("both column average values:")
+print(marks.mean())
+
+print("count of both column student:")
+print(marks.count())
+
+print("using aggregate functions")
+print(marks.agg(["min","max","sum","mean","median"]))
+
+print("groupby particular column")
+print(marks.groupby("chemistry").max())
+
+
+
+
+import numpy as np
+import pandas as pd
+df=pd.DataFrame({"date":pd.date_range(start="2024-12-14",periods=5,freq="d"),
+                 "time":np.random.randint(18,30,size=5)})
+df
